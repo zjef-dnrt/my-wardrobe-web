@@ -1,0 +1,136 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="03018318-947c-dd8e-b7a3-06fadd420f32">
+        <mxGraphModel dx="969" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="677b7b8949515195-1" value="" style="whiteSpace=wrap;html=1;rounded=0;shadow=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=none;fontFamily=Verdana;fontSize=12;fontColor=#000000;align=center;comic=1;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="20" width="1060" height="810" as="geometry"/>
+                </mxCell>
+                <mxCell id="677b7b8949515195-8" value="" style="whiteSpace=wrap;html=1;rounded=0;shadow=0;labelBackgroundColor=none;strokeWidth=1;fillColor=none;fontFamily=Verdana;fontSize=12;align=center;comic=1;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="20" width="240" height="800" as="geometry"/>
+                </mxCell>
+                <mxCell id="677b7b8949515195-9" value="" style="line;strokeWidth=1;html=1;rounded=0;shadow=0;labelBackgroundColor=none;fillColor=none;fontFamily=Verdana;fontSize=14;fontColor=#000000;align=center;comic=1;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="140" width="240" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="677b7b8949515195-28" value="Valies" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="490" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="677b7b8949515195-29" value="Wasmand" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="525" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="677b7b8949515195-32" value="Broeken" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="250" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="677b7b8949515195-33" value="T-shirts" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="286" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="677b7b8949515195-34" value="Blousen" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="321" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="677b7b8949515195-35" value="Schoenen" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="357" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="677b7b8949515195-36" value="Kleedjes" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="393" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-10" value="USER INFO" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;fontColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="30" width="220" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-12" value="Categorieën" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=17;fontFamily=Verdana;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="210" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-13" value="Mijn kleerkast" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=19;fontFamily=Verdana;fontStyle=1;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="160" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-14" value="Mijn kleerkast" style="text;html=1;points=[];align=left;verticalAlign=middle;spacingTop=-4;fontSize=34;fontFamily=Verdana;fontStyle=0;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="30" width="430" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-17" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/plus-128.png;dashed=1;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="210" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-18" value="Andere locatie's" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=19;fontFamily=Verdana;fontStyle=1;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="450" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-19" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/plus-128.png;dashed=1;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="450" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-22" value="Broeken" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=top;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="110" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-23" value="Blousen" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=top;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="110" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-24" value="T-shirts" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=top;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="110" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-25" value="Schoenen" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=top;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="110" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-26" value="Kleedjes" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=top;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="110" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-28" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="170" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-29" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="170" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-30" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="170" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-31" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="880" y="170" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-32" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="400" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-33" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="400" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-34" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="400" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-35" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="880" y="400" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-36" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="620" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-37" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="620" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-38" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="620" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="MSUNK-IFTeYMrbe1Zm5w-39" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="880" y="620" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="170" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="170" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="170" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="880" y="170" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="880" y="400" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="400" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="400" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="KLEDINGSTUK" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;fontColor=#000000;align=center;verticalAlign=middle;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="400" width="170" height="200" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
