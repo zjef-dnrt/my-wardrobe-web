@@ -1,0 +1,20 @@
+<template>
+  <div class="tw-w-full tw-flex-grow tw-flex tw-flex-col tw-items-center tw-justify-center">
+    <p class="tw-mx-9 tw-mb-4 tw-text-center tw-opacity-40">
+      The authentication failed, please try again
+    </p>
+    <NuxtLink
+      to="/login"
+      class="tw-py-4 tw-w-2/3 tw-shadow-md tw-rounded-full tw-flex tw-justify-center tw-items-center tw-bg-helioGray-700 hover:tw-shadow-xl hover:tw--translate-y-1 tw-transition-all tw-duration-300 tw-text-white"
+    >
+      <font-awesome-icon icon="fa-solid fa-arrow-left" class="tw-mr-2"/>
+      Return to login
+    </NuxtLink>
+  </div>
+</template>
+
+<script setup lang="ts">
+definePageMeta({
+  layout: "auth",
+});
+</script>

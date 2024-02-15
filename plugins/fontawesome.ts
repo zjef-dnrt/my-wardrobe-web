@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
   faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faFacebook);
+library.add(faFacebook, faArrowLeft);
 
 // This is important, we are going to let Nuxt worry about the CSS
 config.autoAddCss = false;
