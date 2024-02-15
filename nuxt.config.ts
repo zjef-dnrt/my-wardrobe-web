@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     head: {
       title: "My Closet",
       link: [
-        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Raleway&display=swap",
@@ -23,4 +22,12 @@ export default defineNuxtConfig({
     "@fortawesome/fontawesome-svg-core/styles.css",
   ],
   plugins: ["~/plugins/fontawesome.ts"],
+  supabase: {
+    redirectOptions: {
+      login: "/login",
+      callback: "/confirm",
+      exclude: [],
+      cookieRedirect: true,
+    },
+  },
 });
