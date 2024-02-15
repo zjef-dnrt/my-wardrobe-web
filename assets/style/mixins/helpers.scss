@@ -1,0 +1,3 @@
+@mixin neumorph($fore-color: #b5a7a7, $back-color: #cdbdbd) {
+  box-shadow: 18px 18px 36px $fore-color, -18px -18px 36px $back-color;
+}

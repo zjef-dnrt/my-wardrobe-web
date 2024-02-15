@@ -5,3 +5,7 @@ body {
   overflow: hidden !important;
   font-family: "Raleway";
 }
+
+.neumorph {
+  @include neumorph();
+}

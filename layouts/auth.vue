@@ -11,9 +11,3 @@
     </div>
   </div>
 </template>
-
-<style scoped>
-.neumorph {
-  box-shadow: 18px 18px 36px #b5a7a7, -18px -18px 36px #cdbdbd;
-}
-</style>
