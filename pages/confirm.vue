@@ -9,7 +9,7 @@
       to="/login"
       class="tw-py-4 tw-w-2/3 tw-shadow-md tw-rounded-full tw-flex tw-justify-center tw-items-center tw-bg-helioGray-700 hover:tw-shadow-xl hover:tw--translate-y-1 tw-transition-all tw-duration-300 tw-text-white"
     >
-      <font-awesome-icon icon="fa-solid fa-arrow-left" class="tw-mr-2" />
+      <font-awesome-icon icon="arrow-left" class="tw-mr-2" />
       Return to login
     </NuxtLink>
   </div>
