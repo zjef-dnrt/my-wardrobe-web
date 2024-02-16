@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "my-closet-management",
   "private": true,
   "type": "module",
   "scripts": {
@@ -18,10 +18,12 @@
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
+    "@element-plus/nuxt": "^1.0.7",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@nuxtjs/supabase": "^1.1.6",
     "@nuxtjs/tailwindcss": "^6.11.4",
+    "element-plus": "^2.5.5",
     "sass": "^1.70.0",
     "sass-loader": "^14.1.0"
   }

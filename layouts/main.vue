@@ -113,7 +113,7 @@ const username = user.value?.user_metadata?.name;
 const { categories, fetchCategories } = useCategoriesStore();
 const { locations, fetchLocations } = useLocationsStore();
 
-const { pending, error } = await useAsyncData(
+const { pending } = await useAsyncData(
   "categories-locations",
   async () => await Promise.all([fetchCategories(), fetchLocations()])
 );

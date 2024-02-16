@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase", "@pinia/nuxt"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/supabase",
+    "@pinia/nuxt",
+    "@element-plus/nuxt",
+  ],
   app: {
     head: {
       title: "My Closet",
@@ -21,7 +26,6 @@ export default defineNuxtConfig({
     "~/assets/style/all.scss",
     "@fortawesome/fontawesome-svg-core/styles.css",
   ],
-  plugins: ["~/plugins/fontawesome.ts"],
   supabase: {
     redirectOptions: {
       login: "/login",
