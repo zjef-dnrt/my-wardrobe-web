@@ -26,6 +26,19 @@ export default defineNuxtConfig({
     "~/assets/style/all.scss",
     "@fortawesome/fontawesome-svg-core/styles.css",
   ],
+  elementPlus: {
+    importStyle: "scss",
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData:
+            '@use "@/assets/style/element-plus.scss" as element;',
+        },
+      },
+    },
+  },
   supabase: {
     redirectOptions: {
       login: "/login",
