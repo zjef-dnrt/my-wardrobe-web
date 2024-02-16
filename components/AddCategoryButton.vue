@@ -4,10 +4,11 @@
     class="tw-text-helioGray-800 hover:tw-cursor-pointer"
     @click="dialogOpen = true"
   />
-  <el-dialog v-model="dialogOpen" title="Add a new Category">
+  <el-dialog v-model="dialogOpen" title="Add a new Category" @opened="nameRef?.focus()" @closed="resetForm(formRef)">
     <el-form ref="formRef" :model="form" :rules="rules" label-position="top">
       <el-form-item label="Category name" prop="categoryName">
         <el-input
+          ref="nameRef"
           v-model="form.categoryName"
           placeholder="e.g. Pants, shirts, ..."
           autocomplete="off"
@@ -35,6 +36,7 @@ interface RuleForm {
   categoryName: string;
 }
 const formRef = ref<FormInstance>();
+const nameRef = ref<HTMLInputElement>();
 const form = reactive<RuleForm>({
   categoryName: "",
 });
@@ -70,13 +72,17 @@ const submit = async (formEl: FormInstance | undefined) => {
   });
 };
 
+const resetForm = (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  formEl.resetFields()
+}
+
 const handleAddCategory = async (newCategory: Category) => {
   const alertsStore = useAlertsStore();
   const categoriesStore = useCategoriesStore();
   try {
     await categoriesStore.addCategory(newCategory);
     alertsStore.success("Category added successfully");
-    form.categoryName = "";
   } catch (error) {
     alertsStore.error("An error occurred while adding the category");
     console.error(error);
