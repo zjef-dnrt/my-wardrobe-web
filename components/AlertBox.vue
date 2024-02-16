@@ -7,10 +7,10 @@
       :title="alert.text"
       :type="alert.type"
       show-icon
+      :closable="false"
       class="!tw-mb-1 tw-flex"
     />
   </div>
-  >
 </template>
 
 <script setup lang="ts">

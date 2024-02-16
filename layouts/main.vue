@@ -35,31 +35,35 @@
             >
               My Closet
             </NuxtLink>
-            <font-awesome-icon icon="arrow-right-long" />
+            <client-only>
+              <font-awesome-icon icon="arrow-right-long" />
+            </client-only>
           </div>
           <div>
             <div class="tw-flex tw-mb-3 tw-justify-between tw-items-center">
               <p>Categories</p>
               <Loading v-if="pending" />
-              <AddCategoryButton v-else />
+              <client-only v-else><AddCategoryButton /></client-only>
             </div>
-            <NuxtLink
-              v-for="cat in categories"
-              :key="cat.name"
-              :to="`/categories/${cat.name}`"
-              class="tw-flex tw-my-2 tw-justify-between tw-items-center"
-            >
-              <p
-                class="tw-text-sm tw-w-full tw-text-mistyRose-800 hover:tw-translate-x-2 tw-transition-all"
+            <client-only>
+              <NuxtLink
+                v-for="cat in categories"
+                :key="cat.name"
+                :to="`/categories/${cat.name}`"
+                class="tw-flex tw-my-2 tw-justify-between tw-items-center"
               >
-                {{ capitalize(cat.name) }}
-              </p>
-              <div
-                class="tw-w-12 tw-flex tw-justify-center tw-items-center tw-rounded-full tw-bg-darkSienna-200 tw-text-darkSienna-300 tw-font-bold tw-text-sm"
-              >
-                {{ cat.clothes_amount }}
-              </div>
-            </NuxtLink>
+                <p
+                  class="tw-text-sm tw-w-full tw-text-mistyRose-800 hover:tw-translate-x-2 tw-transition-all"
+                >
+                  {{ capitalize(cat.name) }}
+                </p>
+                <div
+                  class="tw-w-12 tw-flex tw-justify-center tw-items-center tw-rounded-full tw-bg-darkSienna-200 tw-text-darkSienna-300 tw-font-bold tw-text-sm"
+                >
+                  {{ cat.clothes_amount }}
+                </div>
+              </NuxtLink>
+            </client-only>
           </div>
           <div>
             <div
@@ -68,18 +72,20 @@
               <p>Locations</p>
               <Loading v-if="pending" />
             </div>
-            <NuxtLink
-              v-for="loc in locations"
-              :key="loc.name"
-              :to="`/${loc.name}`"
-              class="tw-block tw-my-2"
-            >
-              <p
-                class="tw-text-sm tw-w-full tw-text-mistyRose-800 hover:tw-translate-x-2 tw-transition-all"
+            <client-only>
+              <NuxtLink
+                v-for="loc in locations"
+                :key="loc.name"
+                :to="`/${loc.name}`"
+                class="tw-block tw-my-2"
               >
-                {{ capitalize(loc.name) }}
-              </p>
-            </NuxtLink>
+                <p
+                  class="tw-text-sm tw-w-full tw-text-mistyRose-800 hover:tw-translate-x-2 tw-transition-all"
+                >
+                  {{ capitalize(loc.name) }}
+                </p>
+              </NuxtLink>
+            </client-only>
           </div>
         </section>
         <div
@@ -94,7 +100,7 @@
         </div>
       </aside>
       <main class="tw-w-full tw-px-7 tw-pt-10">
-        <transition name="slide-bottom"><slot /></transition>
+        <slot />
         <AlertBox />
       </main>
     </div>
@@ -124,15 +130,3 @@ const signOut = async () => {
   navigateTo("/login");
 };
 </script>
-
-<style scoped>
-.slide-bottom-enter-active,
-.slide-bottom-leave-active {
-  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
-}
-.slide-bottom-enter,
-.slide-bottom-leave-to {
-  opacity: 0;
-  transform: translate3d(0, 20px, 0);
-}
-</style>

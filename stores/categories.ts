@@ -8,7 +8,9 @@ export const useCategoriesStore = defineStore("categories", () => {
   const categories = ref<Category[]>([]);
 
   const getCategoryByName = (categoryName: string): Category =>
-    categories.value.find((c) => c.name === categoryName)!;
+    categories.value.find(
+      (c) => c.name.toLowerCase() === categoryName.toLowerCase()
+    )!;
 
   const fetchCategories = async () => {
     const { data, error, status } = await supabase

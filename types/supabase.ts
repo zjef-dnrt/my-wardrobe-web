@@ -12,7 +12,7 @@ export type Database = {
       categories: {
         Row: {
           clothes_amount: number
-          created_at: string | null
+          created_at?: string | null
           name: string
           user_id: string
         }
