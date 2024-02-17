@@ -91,6 +91,7 @@ const handleAddCategory = async (newCategory: Category) => {
     await categoriesStore.addCategory(newCategory);
     alertsStore.success("Category added successfully");
     dialogOpen.value = false;
+    navigateTo(`/categories/${newCategory.name}`);
   } catch (error) {
     alertsStore.error(`Error adding category ${newCategory.name}`);
     console.error(error);

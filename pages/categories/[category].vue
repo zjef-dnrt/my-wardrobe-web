@@ -6,12 +6,16 @@
       </h1>
     </div>
     <div class="tw-flex tw-mb-4">
-      <AddGarmentButton :category-name="categoryName" />
+      <client-only>
+        <AddGarmentButton :category-name="categoryName" />
+      </client-only>
       <button
         class="tw-bg-helioGray-600 tw-text-mistyRose-400 tw-p-3 tw-ml-3 tw-shadow-md tw-rounded-md"
         @click="dialogOpen = true"
       >
-        <font-awesome-icon icon="trash" class="tw-mr-3" />
+        <client-only>
+          <font-awesome-icon icon="trash" class="tw-mr-3" />
+        </client-only>
         <span>Delete category</span>
       </button>
     </div>
@@ -31,15 +35,17 @@
       </p>
     </div>
   </div>
-  <el-dialog v-model="dialogOpen" :title="`Delete category ${categoryName}`">
-    <p>Are you sure? This action is irreversable.</p>
-    <template #footer class="dialog-footer">
-      <el-button @click="dialogOpen = false">Cancel</el-button>
-      <el-button type="primary" :loading="isLoading" @click="deleteCategory">
-        Delete
-      </el-button>
-    </template>
-  </el-dialog>
+  <client-only>
+    <el-dialog v-model="dialogOpen" :title="`Delete category ${categoryName}`">
+      <p>Are you sure? This action is irreversable.</p>
+      <template #footer class="dialog-footer">
+        <el-button @click="dialogOpen = false">Cancel</el-button>
+        <el-button type="primary" :loading="isLoading" @click="deleteCategory">
+          Delete
+        </el-button>
+      </template>
+    </el-dialog>
+  </client-only>
 </template>
 
 <script setup lang="ts">
@@ -53,7 +59,9 @@ const route = useRoute();
 const categoryName = computed(() => route.params.category as string);
 
 const { getClothesInCategory } = useClothesStore();
-const clothesInCategory = computed(() => getClothesInCategory(categoryName.value));
+const clothesInCategory = computed(() =>
+  getClothesInCategory(categoryName.value)
+);
 
 const dialogOpen = ref(false);
 const isLoading = ref(false);

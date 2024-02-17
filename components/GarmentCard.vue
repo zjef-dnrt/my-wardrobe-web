@@ -3,27 +3,35 @@
     class="card tw-h-80 tw-w-full tw-my-3 tw-shadow-md tw-rounded-md tw-flex tw-flex-col hover:tw-cursor-pointer hover:tw-shadow-lg hover:tw--translate-y-1 tw-transition-all tw-duration-300 tw-overflow-hidden"
   >
     <div class="card__options">
-      <el-dropdown>
-        <span class="el-dropdown-link card__options-menu tw-text-oldLavender-500">
-          <font-awesome-icon icon="ellipsis-v" />
-        </span>
-        <template #dropdown>
-          <el-dropdown-menu class="tw-text-darkPurple-400">
-            <el-dropdown-item @click="() => {/* TODO */}">
-              <span >
-              <font-awesome-icon icon="pencil" class="tw-mr-3" />
-              Edit
-            </span>
-            </el-dropdown-item>
-            <el-dropdown-item @click="removeGarment">
-              <span>
-                <font-awesome-icon icon="trash" class="tw-mr-3" />
-                Delete
-              </span>
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
+      <client-only>
+        <el-dropdown>
+          <span
+            class="el-dropdown-link card__options-menu tw-text-oldLavender-500"
+          >
+            <font-awesome-icon icon="ellipsis-v" />
+          </span>
+          <template #dropdown>
+            <el-dropdown-menu class="tw-text-darkPurple-400">
+              <el-dropdown-item @click="() => {}">
+                <span>
+                  <client-only>
+                    <font-awesome-icon icon="pencil" class="tw-mr-3" />
+                  </client-only>
+                  Edit
+                </span>
+              </el-dropdown-item>
+              <el-dropdown-item @click="removeGarment">
+                <span>
+                  <client-only>
+                    <font-awesome-icon icon="trash" class="tw-mr-3" />
+                  </client-only>
+                  Delete
+                </span>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </client-only>
     </div>
     <client-only>
       <NuxtLink
@@ -73,6 +81,7 @@
 
 <script setup lang="ts">
 import { capitalize } from "@/util/string";
+import type { AUTO_ALIGNMENT } from "element-plus/es/components/virtual-list/src/defaults.mjs";
 import type { Garment } from "~/types/models";
 
 const props = defineProps<{
