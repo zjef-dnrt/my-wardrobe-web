@@ -7,7 +7,7 @@
   </button>
   <el-dialog
     v-model="dialogOpen"
-    :title="`Add a new Garment to ${props.categoryName}`"
+    :title="`Add a new garment to ${props.categoryName}`"
     @closed="resetForm(formRef)"
   >
     <div
@@ -146,6 +146,7 @@ const submit = async (formEl?: FormInstance) => {
 const resetForm = (formEl?: FormInstance) => {
   if (!formEl) return;
   formEl.resetFields();
+  photoUrl.value = null;
 };
 
 const onChangeInput = (event: Event) => {

@@ -5,6 +5,9 @@ import type { Garment } from "@/types/models";
 export const useClothesStore = defineStore("clothes", () => {
   const supabase = useSupabaseClient<Database>();
 
+  const { $pinia } = useNuxtApp()
+  const categoriesStore = useCategoriesStore($pinia);
+
   const clothes = ref<Garment[]>([]);
 
   const getGarmentById = (id: number) => clothes.value.find((c) => c.id === id);
@@ -25,6 +28,10 @@ export const useClothesStore = defineStore("clothes", () => {
     if (error) throw error;
 
     clothes.value.push(newGarment);
+
+    // Increment the count of the category
+    const category = categoriesStore.getCategoryByName(newGarment.category!);
+    categoriesStore.updateCategory(category.name, { clothes_amount: category.clothes_amount + 1 });
   }
 
   const updateGarment = async (id: number, updatedGarmentData: Partial<Garment>) => {
@@ -43,13 +50,19 @@ export const useClothesStore = defineStore("clothes", () => {
   }
 
   const removeGarment = async (id: number) => {
-    const { error } = await supabase
-      .from("clothes")
-      .delete()
-      .match({ id });
+    const { error } = await supabase.from("clothes").delete().match({ id });
     if (error) throw error;
 
+    const garment = getGarmentById(id);
+    if (!garment) return;
+
     clothes.value = clothes.value.filter((c) => c.id !== id);
+
+    // Decrement the count of the category
+    const category = categoriesStore.getCategoryByName(garment.category!);
+    categoriesStore.updateCategory(category.name, {
+      clothes_amount: category.clothes_amount - 1,
+    });
   }
 
   return {
