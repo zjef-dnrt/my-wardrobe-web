@@ -4,7 +4,12 @@
     class="tw-text-helioGray-800 hover:tw-cursor-pointer"
     @click="dialogOpen = true"
   />
-  <el-dialog v-model="dialogOpen" title="Add a new Category" @opened="nameRef?.focus()" @closed="resetForm(formRef)">
+  <el-dialog
+    v-model="dialogOpen"
+    title="Add a new Category"
+    @opened="nameRef?.focus()"
+    @closed="resetForm(formRef)"
+  >
     <el-form ref="formRef" :model="form" :rules="rules" label-position="top">
       <el-form-item label="Category name" prop="categoryName">
         <el-input
@@ -15,13 +20,11 @@
         />
       </el-form-item>
     </el-form>
-    <template #footer>
-      <div class="dialog-footer">
-        <el-button @click="dialogOpen = false">Cancel</el-button>
-        <el-button type="primary" @click="submit(formRef)">
-          Add category
-        </el-button>
-      </div>
+    <template #footer class="dialog-footer">
+      <el-button @click="dialogOpen = false">Cancel</el-button>
+      <el-button type="primary" @click="submit(formRef)">
+        Add category
+      </el-button>
     </template>
   </el-dialog>
 </template>
@@ -29,6 +32,9 @@
 <script setup lang="ts">
 import type { FormInstance, FormRules } from "element-plus";
 import type { Category } from "@/types/models";
+
+const alertsStore = useAlertsStore();
+const categoriesStore = useCategoriesStore();
 
 const dialogOpen = ref(false);
 
@@ -73,18 +79,16 @@ const submit = async (formEl: FormInstance | undefined) => {
 };
 
 const resetForm = (formEl: FormInstance | undefined) => {
-  if (!formEl) return
-  formEl.resetFields()
-}
+  if (!formEl) return;
+  formEl.resetFields();
+};
 
 const handleAddCategory = async (newCategory: Category) => {
-  const alertsStore = useAlertsStore();
-  const categoriesStore = useCategoriesStore();
   try {
     await categoriesStore.addCategory(newCategory);
     alertsStore.success("Category added successfully");
   } catch (error) {
-    alertsStore.error("An error occurred while adding the category");
+    alertsStore.error(`Error adding category ${newCategory.name}`);
     console.error(error);
   } finally {
     dialogOpen.value = false;
