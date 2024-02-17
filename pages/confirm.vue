@@ -26,7 +26,7 @@ const user = useSupabaseUser();
 const cookieName = useRuntimeConfig().public.supabase.cookieName;
 const redirectPath = useCookie(`${cookieName}-redirect-path`).value;
 
-// Immediately redirect to the dashboard if the user signed in successfully
+// Immediately redirect to the wardrobe if the user signed in successfully
 watch(
   user,
   () => {
@@ -34,7 +34,7 @@ watch(
     // Clear cookie
     useCookie(`${cookieName}-redirect-path`).value = null;
     // Redirect to path
-    return navigateTo(redirectPath || "/dashboard");
+    return navigateTo(redirectPath || "/wardrobe");
   },
   { immediate: true }
 );

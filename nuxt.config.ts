@@ -6,10 +6,11 @@ export default defineNuxtConfig({
     "@nuxtjs/supabase",
     "@pinia/nuxt",
     "@element-plus/nuxt",
+    "@nuxt/image",
   ],
   app: {
     head: {
-      title: "My Closet",
+      title: "My Wardrobe",
       link: [
         {
           rel: "stylesheet",
@@ -33,8 +34,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData:
-            '@use "@/assets/style/element-plus.scss" as element;',
+          additionalData: '@use "@/assets/style/element-plus.scss" as element;',
         },
       },
     },

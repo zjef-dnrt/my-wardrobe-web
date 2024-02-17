@@ -30,10 +30,10 @@
             class="tw-flex tw-mb-6 tw-justify-between tw-items-center hover:tw-cursor-pointer"
           >
             <NuxtLink
-              to="/dashboard"
+              to="/wardrobe"
               class="tw-w-full tw-text-xl hover:tw-translate-x-2 tw-transition-all"
             >
-              My Closet
+              My Wardrobe
             </NuxtLink>
             <client-only>
               <font-awesome-icon icon="arrow-right-long" />
@@ -120,7 +120,7 @@ const { categories, fetchCategories } = useCategoriesStore();
 const { locations, fetchLocations } = useLocationsStore();
 
 const { pending } = await useAsyncData(
-  "categories-locations",
+  "categories-locations-clothes",
   async () => await Promise.all([fetchCategories(), fetchLocations()])
 );
 
