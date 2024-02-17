@@ -13,7 +13,7 @@ export const useLocationsStore = defineStore("locations", () => {
   const fetchLocations = async () => {
     const { data, error, status } = await supabase
       .from("locations")
-      .select("*");
+      .select();
     if (error && status !== 406) throw error;
 
     locations.value = data!;

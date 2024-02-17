@@ -13,11 +13,11 @@
               icon="user-circle"
               class="tw-text-5xl tw-text-mistyRose-800"
             />
-            <img
+            <NuxtImg
               v-else
               :src="avatarURL"
+              placeholder="/avatar-girl.svg"
               class="tw-object-cover tw-flex-grow"
-              alt="user avatar"
             />
           </div>
           <div class="tw-flex tw-flex-col tw-text-darkPurple-400">
@@ -113,15 +113,16 @@ import { capitalize } from "@/util/string";
 const supabase = useSupabaseClient();
 const user = useSupabaseUser();
 
-const avatarURL = user.value?.user_metadata?.avatar_url;
+const avatarURL = ref<string>(user.value?.user_metadata?.avatar_url);
 const username = user.value?.user_metadata?.name;
 
 const { categories, fetchCategories } = useCategoriesStore();
 const { locations, fetchLocations } = useLocationsStore();
+const { fetchClothes } = useClothesStore();
 
 const { pending } = await useAsyncData(
   "categories-locations-clothes",
-  async () => await Promise.all([fetchCategories(), fetchLocations()])
+  async () => await Promise.all([fetchCategories(), fetchLocations(), fetchClothes()])
 );
 
 const signOut = async () => {

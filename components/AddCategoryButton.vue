@@ -22,7 +22,7 @@
     </el-form>
     <template #footer class="dialog-footer">
       <el-button @click="dialogOpen = false">Cancel</el-button>
-      <el-button type="primary" @click="submit(formRef)">
+      <el-button type="primary" :loading="isLoading" @click="submit(formRef)">
         Add category
       </el-button>
     </template>
@@ -37,6 +37,7 @@ const alertsStore = useAlertsStore();
 const categoriesStore = useCategoriesStore();
 
 const dialogOpen = ref(false);
+const isLoading = ref(false);
 
 interface RuleForm {
   categoryName: string;
@@ -68,6 +69,8 @@ const submit = async (formEl: FormInstance | undefined) => {
   await formEl.validate((valid, fields) => {
     if (!valid) return;
 
+    isLoading.value = true;
+
     const user = useSupabaseUser();
     const newCategory: Category = {
       name: form.categoryName,
@@ -87,11 +90,12 @@ const handleAddCategory = async (newCategory: Category) => {
   try {
     await categoriesStore.addCategory(newCategory);
     alertsStore.success("Category added successfully");
+    dialogOpen.value = false;
   } catch (error) {
     alertsStore.error(`Error adding category ${newCategory.name}`);
     console.error(error);
   } finally {
-    dialogOpen.value = false;
+    isLoading.value = false;
   }
 };
 </script>

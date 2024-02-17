@@ -1,7 +1,7 @@
 <template>
   <div class="tw-h-full tw-flex tw-flex-col">
-    <div class="tw-flex tw-justify-between tw-items-center">
-      <h1 class="tw-mb-5 tw-text-mistyRose-800">
+    <div class="tw-flex tw-justify-between tw-items-center tw-mb-5">
+      <h1 class="tw-text-mistyRose-800">
         {{ capitalize(categoryName) }}
       </h1>
       <button
@@ -15,8 +15,9 @@
     <div class="tw-flex tw-mb-4">
       <AddGarmentButton :category-name="categoryName" />
     </div>
-    <section v-if="clothesInCategory.length > 0" class="tw-flex-grow">
+    <div class="tw-flex-grow">
       <div
+        v-if="clothesInCategory.length"
         class="tw-h-full tw-w-full tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-4 xl:tw-grid-cols-6 tw-gap-6 tw-overflow-y-auto"
       >
         <GarmentCard
@@ -25,12 +26,10 @@
           :garment="garment"
         />
       </div>
-    </section>
-    <section v-else class="tw-flex-grow">
-      <p class="tw-text-xl tw-text-mistyRose-800 tw-opacity-75">
-        You don't have any clothes added yet!
+      <p v-else class="tw-text-xl tw-text-mistyRose-800 tw-opacity-75">
+        You don't have any clothes in this category!
       </p>
-    </section>
+    </div>
   </div>
   <el-dialog v-model="dialogOpen" :title="`Delete category ${categoryName}`">
     <p>Are you sure? This action is irreversable.</p>
@@ -51,12 +50,10 @@ definePageMeta({
 });
 
 const route = useRoute();
-const categoryName = route.params.category as string;
+const categoryName = computed(() => route.params.category as string);
 
-const clothesStore = useClothesStore();
-const clothesInCategory = computed(() =>
-  clothesStore.getClothesInCategory(categoryName)
-);
+const { getClothesInCategory } = useClothesStore();
+const clothesInCategory = computed(() => getClothesInCategory(categoryName.value));
 
 const dialogOpen = ref(false);
 const isLoading = ref(false);
@@ -66,7 +63,7 @@ const alertStore = useAlertsStore();
 
 const deleteCategory = async () => {
   try {
-    await categoriesStore.removeCategory(categoryName);
+    await categoriesStore.removeCategory(categoryName.value);
     alertStore.success(`Category ${categoryName} deleted`);
   } catch (error) {
     alertStore.error(`Error deleting category ${categoryName}`);

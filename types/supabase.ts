@@ -43,12 +43,12 @@ export type Database = {
           brand: string
           category: string | null
           color: string
-          created_at: string | null
-          id: number
-          last_added_to_wardrobe: string
-          location: string | null
+          created_at?: string | null
+          id?: number
+          last_added_to_wardrobe?: string
+          location?: string | null
           photo: string | null
-          purchase_date: string | null
+          purchase_date: Date | null
           remark: string | null
           size: string | null
           user_id: string
@@ -62,7 +62,7 @@ export type Database = {
           last_added_to_wardrobe?: string
           location?: string | null
           photo?: string | null
-          purchase_date?: string | null
+          purchase_date?: Date | null
           remark?: string | null
           size?: string | null
           user_id: string
@@ -76,7 +76,7 @@ export type Database = {
           last_added_to_wardrobe?: string
           location?: string | null
           photo?: string | null
-          purchase_date?: string | null
+          purchase_date?: Date | null
           remark?: string | null
           size?: string | null
           user_id?: string

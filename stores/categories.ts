@@ -15,7 +15,7 @@ export const useCategoriesStore = defineStore("categories", () => {
   const fetchCategories = async () => {
     const { data, error, status } = await supabase
       .from("categories")
-      .select("*");
+      .select();
     if (error && status !== 406) throw error;
 
     categories.value = data!;

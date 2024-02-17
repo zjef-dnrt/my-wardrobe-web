@@ -82,6 +82,7 @@ const props = defineProps<{
 const clothesStore = useClothesStore();
 const alertsStore = useAlertsStore();
 const supabase = useSupabaseClient();
+const user = useSupabaseUser();
 
 const { garment } = toRefs(props);
 const imageUrl = ref<string | null>(null);
@@ -95,7 +96,7 @@ watch(
   (newGarment: Garment) => {
     const { data } = supabase.storage
       .from("clothes-images")
-      .getPublicUrl(newGarment.photo ?? "");
+      .getPublicUrl(`${user.value!.id}/${newGarment.photo}`);
 
     imageUrl.value = data.publicUrl;
   },
@@ -104,10 +105,10 @@ watch(
 
 const removeGarment = async () => {
   try {
-    await clothesStore.removeGarment(garment.value.id);
-    alertsStore.success("Success, your garment was removed");
+    await clothesStore.removeGarment(garment.value.id!);
+    alertsStore.success("Garment removed successfully");
   } catch (error) {
-    alertsStore.error("An error occurred while removing your garment");
+    alertsStore.error("Error removing garment");
     console.error(error);
   }
 };
