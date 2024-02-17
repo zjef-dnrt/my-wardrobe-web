@@ -1,19 +1,19 @@
 <template>
   <div class="tw-h-full tw-flex tw-flex-col">
-    <div class="tw-flex tw-justify-between tw-items-center tw-mb-5">
+    <div class="tw-flex tw-items-center tw-mb-5">
       <h1 class="tw-text-mistyRose-800">
         {{ capitalize(categoryName) }}
       </h1>
-      <button
-        class="tw-bg-helioGray-600 tw-p-3 tw-shadow-md tw-rounded-md"
-        @click="dialogOpen = true"
-      >
-        <font-awesome-icon icon="trash" class="tw-mr-3 tw-text-mistyRose-400" />
-        <span class="tw-text-mistyRose-400">Delete category</span>
-      </button>
     </div>
     <div class="tw-flex tw-mb-4">
       <AddGarmentButton :category-name="categoryName" />
+      <button
+        class="tw-bg-helioGray-600 tw-text-mistyRose-400 tw-p-3 tw-ml-3 tw-shadow-md tw-rounded-md"
+        @click="dialogOpen = true"
+      >
+        <font-awesome-icon icon="trash" class="tw-mr-3" />
+        <span>Delete category</span>
+      </button>
     </div>
     <div class="tw-flex-grow">
       <div

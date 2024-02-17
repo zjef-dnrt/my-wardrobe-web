@@ -92,7 +92,7 @@
           class="tw-w-full tw-flex tw-justify-center tw-items-center tw-py-2 tw-px-6"
         >
           <button
-            class="tw-flex-grow tw-bg-helioGray-600 tw-py-3 tw-shadow-sm tw-rounded-md"
+            class="tw-flex-grow tw-bg-helioGray-600 tw-text-mistyRose-400 tw-py-3 tw-shadow-sm tw-rounded-md"
             @click="signOut"
           >
             Sign out
