@@ -8,15 +8,15 @@
           <font-awesome-icon icon="ellipsis-v" />
         </span>
         <template #dropdown>
-          <el-dropdown-menu>
+          <el-dropdown-menu class="tw-text-darkPurple-400">
             <el-dropdown-item @click="() => {/* TODO */}">
-              <span class="tw-text-darkPurple-400">
+              <span >
               <font-awesome-icon icon="pencil" class="tw-mr-3" />
               Edit
             </span>
             </el-dropdown-item>
             <el-dropdown-item @click="removeGarment">
-              <span class="tw-text-darkSienna-400">
+              <span>
                 <font-awesome-icon icon="trash" class="tw-mr-3" />
                 Delete
               </span>
@@ -30,7 +30,7 @@
         :to="`/${garment.category}/${garment.id}`"
         class="tw-h-full tw-flex tw-flex-col card__display"
       >
-        <div class="tw-h-full tw-relative card__details">
+        <div class="tw-h-full tw-relative tw-overflow-hidden card__details">
           <el-tag
             type="info"
             class="tw-absolute tw-bottom-1 tw-right-1 tw-z-[1]"
@@ -126,8 +126,8 @@ const removeGarment = async () => {
 
   .card__options {
     position: absolute;
-    top: 0.5rem;
-    right: 0.15rem;
+    top: 1rem;
+    right: 1rem;
     z-index: 15;
     opacity: 0;
     transition: opacity 0.45s ease;
@@ -147,21 +147,17 @@ const removeGarment = async () => {
 
   .card__display:hover {
     .card__details {
-      height: 75%;
-
       img {
-        height: 95%;
+        transform: scale(1.1);
       }
     }
   }
 
   .card__details {
-    transition: all 0.5s ease;
-
     img {
       height: 100%;
       width: auto;
-      transition: all 1s ease;
+      transition: all 0.4s ease;
     }
   }
 }
