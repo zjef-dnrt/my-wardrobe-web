@@ -56,7 +56,7 @@
             <NuxtImg
               v-else
               :src="imageUrl"
-              placeholder
+              placeholder="/hanger.svg"
               class="tw-w-full tw-h-full tw-object-cover tw-filter tw-brightness-75"
             />
           </div>
