@@ -76,6 +76,7 @@ export default {
     plugin(({ addBase, theme }) => {
       addBase({
         h1: { fontSize: theme("fontSize.4xl") },
+        h3: { fontSize: theme("fontSize.lg") },
       });
     }),
   ],

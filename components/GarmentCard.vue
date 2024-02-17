@@ -57,7 +57,7 @@
               v-else
               :src="imageUrl"
               placeholder="/hanger.svg"
-              class="tw-w-full tw-h-full tw-object-cover tw-filter tw-brightness-75"
+              class="tw-w-full tw-h-full tw-filter tw-brightness-75"
             />
           </div>
         </div>
@@ -81,7 +81,6 @@
 
 <script setup lang="ts">
 import { capitalize } from "@/util/string";
-import type { AUTO_ALIGNMENT } from "element-plus/es/components/virtual-list/src/defaults.mjs";
 import type { Garment } from "~/types/models";
 
 const props = defineProps<{
@@ -135,14 +134,18 @@ const removeGarment = async () => {
 
   .card__options {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 0.5em;
+    right: 0.5em;
     z-index: 15;
     opacity: 0;
     transition: opacity 0.45s ease;
   }
 
   .card__options-menu {
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-content: center;
     background: transparent !important;
     outline: none !important;
 
