@@ -6,9 +6,8 @@
       </h1>
     </div>
     <div class="tw-flex tw-mb-4">
-      <client-only>
-        <AddGarmentButton :category-name="categoryName" />
-      </client-only>
+      <AddGarmentButton :category-name="categoryName" />
+      <PickGarmentButton :category-name="categoryName" />
       <button
         class="tw-bg-helioGray-600 tw-text-mistyRose-400 tw-p-3 tw-ml-3 tw-shadow-md tw-rounded-md"
         @click="dialogOpen = true"
@@ -38,7 +37,7 @@
   <client-only>
     <el-dialog v-model="dialogOpen" :title="`Delete category ${categoryName}`">
       <p>Are you sure? This action is irreversable.</p>
-      <template #footer class="dialog-footer">
+      <template #footer>
         <el-button @click="dialogOpen = false">Cancel</el-button>
         <el-button type="primary" :loading="isLoading" @click="deleteCategory">
           Delete

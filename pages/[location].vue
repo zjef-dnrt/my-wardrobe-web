@@ -35,7 +35,7 @@
   <client-only>
     <el-dialog v-model="dialogOpen" :title="`Delete location ${locationName}`">
       <p>Are you sure? This action is irreversable.</p>
-      <template #footer class="dialog-footer">
+      <template #footer>
         <el-button @click="dialogOpen = false">Cancel</el-button>
         <el-button type="primary" :loading="isLoading" @click="deleteLocation">
           Delete

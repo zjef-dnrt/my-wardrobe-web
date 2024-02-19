@@ -20,7 +20,7 @@
         />
       </el-form-item>
     </el-form>
-    <template #footer class="dialog-footer">
+    <template #footer>
       <el-button @click="dialogOpen = false">Cancel</el-button>
       <el-button type="primary" :loading="isLoading" @click="submit(formRef)">
         Add location
