@@ -72,9 +72,9 @@ const alertStore = useAlertsStore();
 const deleteCategory = async () => {
   try {
     await categoriesStore.removeCategory(categoryName.value);
-    alertStore.success(`Category ${categoryName} deleted`);
+    alertStore.success(`Category ${categoryName.value} deleted`);
   } catch (error) {
-    alertStore.error(`Error deleting category ${categoryName}`);
+    alertStore.error(`Error deleting category ${categoryName.value}`);
     console.log(error);
   } finally {
     dialogOpen.value = false;
