@@ -53,7 +53,8 @@ export const useCategoriesStore = defineStore("categories", () => {
       .match({ name });
     if (error) throw error;
 
-    categories.value = categories.value.filter((c) => c.name !== name);
+    const index = categories.value.findIndex((c) => c.name === name);
+    categories.value.splice(index, 1);
   };
 
   return {
