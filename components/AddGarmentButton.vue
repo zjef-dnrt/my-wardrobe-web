@@ -30,7 +30,7 @@
       type="file"
       accept="image/*"
       class="tw-mb-2"
-      @change="onChangeInput"
+      @change="onChangeImage"
     />
     <el-form ref="formRef" :model="form" :rules="rules" label-position="top">
       <el-form-item label="Brand" prop="brand">
@@ -77,101 +77,38 @@
       <el-button type="primary" @click="submit(formRef)" :loading="isLoading">
         Add garment
       </el-button>
-      <p v-if="uploadStatus" class="tw-text-sm tw-text-mistyRose-800 tw-my-1 tw-italic">{{ uploadStatus }}</p>
+      <p
+        v-if="imageUploadStatus"
+        class="tw-text-sm tw-text-mistyRose-800 tw-my-1 tw-italic"
+      >
+        {{ imageUploadStatus }}
+      </p>
     </template>
   </el-dialog>
 </template>
 
 <script setup lang="ts">
-import type { FormInstance, FormRules } from "element-plus";
-import type { Garment } from "@/types/models";
+import type { FormInstance } from "element-plus";
 
 const props = defineProps<{
   categoryName: string;
 }>();
 
-const user = useSupabaseUser();
-const clothesStore = useClothesStore();
-const alertsStore = useAlertsStore();
-const { resizeImage, uploadStatus, formatImageAndUpload } = useImageHandler();
-
 const dialogOpen = ref(false);
-const isLoading = ref(false);
-const photoUrl = ref<string | null>(null);
-
-interface RuleForm {
-  brand: string;
-  color: string;
-  size: string;
-  purchase_date: Date;
-  remark: string;
-}
-
 const formRef = ref<FormInstance>();
-const form = reactive<RuleForm>({
-  brand: "",
-  color: "",
-  size: "",
-  purchase_date: new Date(),
-  remark: "",
-});
 
-const rules = reactive<FormRules<RuleForm>>({
-  brand: [
-    { required: true, message: "This field is required", trigger: "blur" },
-  ],
-  color: [
-    { required: true, message: "This field is required", trigger: "blur" },
-  ],
-});
-
-const submit = async (formEl?: FormInstance) => {
-  if (!formEl) return;
-  await formEl.validate(async (valid, fields) => {
-    if (!valid) return;
-
-    isLoading.value = true;
-
-    const imageBucketKey = await formatImageAndUpload();
-    const newGarment: Garment = {
-      ...form,
-      user_id: user.value!.id,
-      category: props.categoryName,
-      photo: imageBucketKey,
-    };
-    handleAddGarment(newGarment);
-  });
+const closeDialog = () => {
+  dialogOpen.value = false;
 };
 
-const resetForm = (formEl?: FormInstance) => {
-  if (!formEl) return;
-  formEl.resetFields();
-  photoUrl.value = null;
-};
-
-const onChangeInput = (event: Event) => {
-  const target = event.target as HTMLInputElement;
-  const file = target.files?.[0];
-  if (!file) return;
-
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    photoUrl.value = e.target?.result as string;
-  };
-  reader.readAsDataURL(file);
-  resizeImage(file);
-};
-
-const handleAddGarment = async (newGarment: Garment) => {
-  try {
-    await clothesStore.addGarment(newGarment);
-    alertsStore.success("Garment added successfully");
-    dialogOpen.value = false;
-  } catch (error) {
-    alertsStore.error("Error adding garment");
-    console.error(error);
-  } finally {
-    isLoading.value = false;
-  }
-};
+const {
+  form,
+  photoUrl,
+  rules,
+  submit,
+  imageUploadStatus,
+  isLoading,
+  resetForm,
+  onChangeImage,
+} = useGarmentForm(closeDialog, undefined, props.categoryName);
 </script>

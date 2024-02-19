@@ -15,9 +15,9 @@
               <el-dropdown-item @click="() => {}">
                 <span>
                   <client-only>
-                    <font-awesome-icon icon="pencil" class="tw-mr-3" />
+                    <EditGarmentButton :garment="garment" />
                   </client-only>
-                  Edit
+                  <span class="tw-ml-3">Edit</span>
                 </span>
               </el-dropdown-item>
               <el-dropdown-item @click="removeGarment">

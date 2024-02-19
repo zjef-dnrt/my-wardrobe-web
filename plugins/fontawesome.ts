@@ -6,7 +6,7 @@ import {
   faArrowRightLong,
   faEllipsisV,
   faImage,
-  faPencil,
+  faPenClip,
   faPlus,
   faTrash,
   faUserCircle,
@@ -19,7 +19,7 @@ library.add(
   faArrowRightLong,
   faPlus,
   faTrash,
-  faPencil,
+  faPenClip,
   faEllipsisV,
   faImage
 );
