@@ -53,14 +53,14 @@ export default function (
     ],
   });
 
-  const submit = async (formEl?: FormInstance) => {
+  const submit = async (formEl?: FormInstance, removeBg?: boolean) => {
     if (!formEl) return;
     await formEl.validate(async (valid, fields) => {
       if (!valid) return;
 
       isLoading.value = true;
 
-      const imageBucketKey = await formatImageAndUpload();
+      const imageBucketKey = await formatImageAndUpload(removeBg);
       const newGarment: Garment = {
         ...form,
         user_id: user.value!.id,

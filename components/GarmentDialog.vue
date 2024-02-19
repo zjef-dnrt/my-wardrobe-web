@@ -66,9 +66,10 @@
         />
       </el-form-item>
     </el-form>
+    <el-checkbox v-model="removeBackgroundOfImage" label="Remove the background of the image before uploading" size="large" />
     <template #footer>
       <el-button @click="dialogOpen = false">Cancel</el-button>
-      <el-button type="primary" @click="submit(formRef)" :loading="isLoading">
+      <el-button type="primary" @click="submit(formRef, removeBackgroundOfImage)" :loading="isLoading">
         Save
       </el-button>
       <p
@@ -91,6 +92,7 @@ const props = defineProps<{
 }>();
 
 const dialogOpen = ref(props.open);
+const removeBackgroundOfImage = ref(true);
 const formRef = ref<FormInstance>();
 
 watch(() => props.open, (newVal) => dialogOpen.value = newVal);

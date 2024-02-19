@@ -2,7 +2,7 @@ import loadImage, { type LoadImageResult } from "blueimp-load-image";
 import { removeBackground } from "@imgly/background-removal";
 import { uuid } from "@/util/string";
 
-const IMAGE_FORMAT = 'webp';
+const IMAGE_FORMAT = "webp";
 
 export default function () {
   const resizedImage = ref<LoadImageResult | null>(null);
@@ -17,14 +17,25 @@ export default function () {
     });
   };
 
-  const formatImageAndUpload = async () => {
+  const formatImageAndUpload = async (removeBg: boolean = true) => {
     if (!resizedImage.value) return;
 
-    const imageNoBg = await removeImageBackground();
+    let imageNoBg: Blob | null = null;
+
+    if (removeBg) {
+      imageNoBg = await removeImageBackground();
+    } else {
+      const image = resizedImage.value.image as HTMLCanvasElement;
+      image.toBlob((blob) => (imageNoBg = blob));
+    }
+
+    if (!imageNoBg) return;
+
+    // Upload the image to the storage
     const bucketObjectRef = await uploadImage(uuid(), imageNoBg);
 
     // Remove the bucket name from the path
-    return bucketObjectRef!.path.split('/').slice(1).join('/');
+    return bucketObjectRef!.path.split("/").slice(1).join("/");
   };
 
   const removeImageBackground = async (): Promise<Blob> =>
@@ -37,8 +48,8 @@ export default function () {
         const imgBlob = await removeBackground(inputBlob, {
           output: {
             format: `image/${IMAGE_FORMAT}`,
-          }
-        })
+          },
+        });
         uploadStatus.value = "";
         resolve(imgBlob);
       });
@@ -71,4 +82,4 @@ export default function () {
     uploadStatus,
     formatImageAndUpload,
   };
-};
+}
