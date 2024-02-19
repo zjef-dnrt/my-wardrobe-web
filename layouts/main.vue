@@ -50,10 +50,10 @@
                 v-for="cat in categories"
                 :key="cat.name"
                 :to="`/categories/${cat.name}`"
-                class="tw-flex tw-my-2 tw-justify-between tw-items-center"
+                class="tw-flex tw-justify-between tw-items-center"
               >
                 <p
-                  class="tw-text-sm tw-w-full tw-text-mistyRose-800 hover:tw-translate-x-2 tw-transition-all"
+                  class="tw-leading-6 tw-text-sm tw-w-full tw-text-mistyRose-800 hover:tw-translate-x-2 tw-transition-all"
                 >
                   {{ capitalize(cat.name) }}
                 </p>
@@ -78,10 +78,10 @@
                 v-for="loc in locations"
                 :key="loc.name"
                 :to="`/${loc.name}`"
-                class="tw-block tw-my-2"
+                class="tw-block"
               >
                 <p
-                  class="tw-text-sm tw-w-full tw-text-mistyRose-800 hover:tw-translate-x-2 tw-transition-all"
+                  class="tw-leading-6 tw-text-sm tw-w-full tw-text-mistyRose-800 hover:tw-translate-x-2 tw-transition-all"
                 >
                   {{ capitalize(loc.name) }}
                 </p>
