@@ -37,7 +37,7 @@
       <p>Are you sure? This action is irreversable.</p>
       <template #footer class="dialog-footer">
         <el-button @click="dialogOpen = false">Cancel</el-button>
-        <el-button type="primary" :loading="isLoading" @click="deleteCategory">
+        <el-button type="primary" :loading="isLoading" @click="deleteLocation">
           Delete
         </el-button>
       </template>
@@ -66,12 +66,12 @@ const isLoading = ref(false);
 const locationsStore = useLocationsStore();
 const alertStore = useAlertsStore();
 
-const deleteCategory = async () => {
+const deleteLocation = async () => {
   try {
     await locationsStore.removeLocation(locationName.value);
-    alertStore.success(`Category ${locationName.value} deleted`);
+    alertStore.success(`Location ${locationName.value} deleted`);
   } catch (error) {
-    alertStore.error(`Error deleting category ${locationName.value}`);
+    alertStore.error(`Error deleting location ${locationName.value}`);
     console.log(error);
   } finally {
     dialogOpen.value = false;
