@@ -4,7 +4,7 @@
     <div
       class="gradient-bg tw-relative tw-w-3/4 tw-h-3/4 tw-mt-4 tw-grid tw-place-items-center tw-p-8 tw-border-helioGray-700 tw-border-2 tw-rounded-md tw-shadow-md"
     >
-      <NuxtImg :src="photoUrl" placeholder fit="contain" class="tw-pb-8"/>
+      <NuxtImg :src="garment!.photoURL!" placeholder fit="contain" class="tw-pb-8"/>
       <div
         v-if="garment"
         class="tw-flex tw-flex-col tw-px-8 tw-py-4 tw-w-full tw-bg-mistyRose-500 tw-rounded-md tw-shadow-xl"
@@ -44,24 +44,9 @@ definePageMeta({
 });
 
 const route = useRoute();
-const user = useSupabaseUser();
-const supabase = useSupabaseClient();
 const clothesStore = useClothesStore();
 
 const garment = computed(() => clothesStore.getGarmentById(+route.params.id));
-const photoUrl = ref<string>("");
-
-watch(
-  () => route.params.id,
-  async (id) => {
-    const { data } = supabase.storage
-      .from("clothes-images")
-      .getPublicUrl(`${user.value!.id}/${garment.value!.photo}`);
-
-    photoUrl.value = data.publicUrl;
-  },
-  { immediate: true }
-);
 </script>
 
 <style lang="scss" scoped>

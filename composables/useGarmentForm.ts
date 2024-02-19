@@ -31,7 +31,7 @@ export default function (
   const isLoading = ref(false);
 
   // The URL used to display the image in the dialog
-  const photoUrl = ref<string | null>(null);
+  const photoUrl = ref<string | null>(garment?.photoURL ?? null);
 
   const form = reactive<RuleForm>({
     brand: garment?.brand ?? "",
@@ -52,15 +52,6 @@ export default function (
       { required: true, message: "This field is required", trigger: "blur" },
     ],
   });
-
-  onBeforeMount(async () => {
-    if (!garment) return
-    const { data } = supabase.storage
-      .from("clothes-images")
-      .getPublicUrl(`${user.value!.id}/${garment.photo}`);
-
-    photoUrl.value = data.publicUrl;
-  })
 
   const submit = async (formEl?: FormInstance) => {
     if (!formEl) return;

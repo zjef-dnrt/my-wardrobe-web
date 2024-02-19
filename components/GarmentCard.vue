@@ -45,13 +45,13 @@
             class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center gradient-bg"
           >
             <font-awesome-icon
-              v-if="!imageUrl"
+              v-if="!garment.photoURL"
               icon="image"
               class="tw-text-5xl tw-text-mistyRose-800 tw-opacity-25"
             />
             <NuxtImg
               v-else
-              :src="imageUrl"
+              :src="garment.photoURL"
               placeholder="/hanger.svg"
               class="tw-w-full tw-h-full tw-filter tw-brightness-75"
             />
@@ -96,23 +96,10 @@ const supabase = useSupabaseClient();
 const user = useSupabaseUser();
 
 const { garment } = toRefs(props);
-const imageUrl = ref<string | null>(null);
 const garmentEditDialogVisible = ref(false);
 const garmentLocation = computed(() => garment.value.location ?? "Wardrobe");
 const garmentSize = computed(
   () => garment.value.size?.toLowerCase() ?? "unknown"
-);
-
-watch(
-  garment,
-  (newGarment: Garment) => {
-    const { data } = supabase.storage
-      .from("clothes-images")
-      .getPublicUrl(`${user.value!.id}/${newGarment.photo}`);
-
-    imageUrl.value = data.publicUrl;
-  },
-  { immediate: true }
 );
 
 const removeGarment = async () => {

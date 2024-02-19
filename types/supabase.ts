@@ -48,6 +48,7 @@ export type Database = {
           last_added_to_wardrobe?: string
           location?: string | null
           photo: string | null
+          photoURL?: string | null
           purchase_date: Date | null
           remark: string | null
           size: string | null
