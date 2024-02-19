@@ -8,7 +8,7 @@ export const useLocationsStore = defineStore("locations", () => {
   const locations = ref<Location[]>([]);
 
   const getLocationByName = (locationName: string): Location =>
-    locations.value.find((c) => c.name === locationName)!;
+    locations.value.find((c) => c.name.toLowerCase() === locationName.toLowerCase())!;
 
   const fetchLocations = async () => {
     const { data, error, status } = await supabase
@@ -50,6 +50,9 @@ export const useLocationsStore = defineStore("locations", () => {
       .delete()
       .match({ name });
     if (error) throw error;
+
+    const index = locations.value.findIndex((c) => c.name === name);
+    locations.value.splice(index, 1);
   }
 
   return {

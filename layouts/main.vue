@@ -71,6 +71,7 @@
             >
               <p>Locations</p>
               <Loading v-if="pending" />
+              <client-only v-else><AddLocationButton/></client-only>
             </div>
             <client-only>
               <NuxtLink
