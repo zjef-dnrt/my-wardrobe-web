@@ -1,12 +1,13 @@
 <template>
-  <div class="tw-flex tw-h-full tw-items-center tw-justify-center tw-my-4">
+  <div class="tw-flex tw-flex-col tw-h-full tw-items-center tw-justify-center tw-my-4">
+    <EditGarmentButton :garment="garment!" button />
     <div
-      class="gradient-bg tw-relative tw-w-3/4 tw-h-3/4 tw-grid tw-place-items-center tw-p-8 tw-border-helioGray-700 tw-border-2 tw-rounded-md tw-shadow-md"
+      class="gradient-bg tw-relative tw-w-3/4 tw-h-3/4 tw-mt-4 tw-grid tw-place-items-center tw-p-8 tw-border-helioGray-700 tw-border-2 tw-rounded-md tw-shadow-md"
     >
-      <NuxtImg :src="photoUrl" placeholder fit="contain" />
+      <NuxtImg :src="photoUrl" placeholder fit="contain" class="tw-pb-8"/>
       <div
         v-if="garment"
-        class="tw-flex tw-flex-col tw-px-8 tw-py-4 tw-w-full lg:tw-w-auto tw-bg-mistyRose-500 tw-rounded-md tw-shadow-xl lg:tw-absolute tw-top-3 tw-left-3"
+        class="tw-flex tw-flex-col tw-px-8 tw-py-4 tw-w-full tw-bg-mistyRose-500 tw-rounded-md tw-shadow-xl"
       >
         <div class="tw-mt-2 tw-mb-1">
           <h3 class="tw-font-bold">Brand</h3>
