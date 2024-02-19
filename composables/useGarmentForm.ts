@@ -18,17 +18,20 @@ interface RuleForm {
  * @param categoryName The category name
  */
 export default function (
-  onSuccess: Function,
+  onSuccess?: Function,
   garment?: Garment,
   categoryName?: string
 ) {
   const user = useSupabaseUser();
+  const supabase = useSupabaseClient();
   const clothesStore = useClothesStore();
   const alertsStore = useAlertsStore();
   const { resizeImage, uploadStatus, formatImageAndUpload } = useImageHandler();
 
   const isLoading = ref(false);
-  const photoUrl = ref<string | null>(garment?.photo ?? null);
+
+  // The URL used to display the image in the dialog
+  const photoUrl = ref<string | null>(null);
 
   const form = reactive<RuleForm>({
     brand: garment?.brand ?? "",
@@ -50,6 +53,15 @@ export default function (
     ],
   });
 
+  onBeforeMount(async () => {
+    if (!garment) return
+    const { data } = supabase.storage
+      .from("clothes-images")
+      .getPublicUrl(`${user.value!.id}/${garment.photo}`);
+
+    photoUrl.value = data.publicUrl;
+  })
+
   const submit = async (formEl?: FormInstance) => {
     if (!formEl) return;
     await formEl.validate(async (valid, fields) => {
@@ -62,7 +74,7 @@ export default function (
         ...form,
         user_id: user.value!.id,
         category: categoryName ?? garment?.category ?? null,
-        photo: imageBucketKey,
+        ...(imageBucketKey && { photo: imageBucketKey }),
       };
 
       // If the garment exists, update it, otherwise add it
@@ -77,7 +89,9 @@ export default function (
   const resetForm = (formEl?: FormInstance) => {
     if (!formEl) return;
     formEl.resetFields();
-    photoUrl.value = null;
+
+    // Reset the photo URL if it's an add form
+    if (!garment) photoUrl.value = null;
   };
 
   const onChangeInput = (event: Event) => {
@@ -97,7 +111,7 @@ export default function (
     try {
       await clothesStore.addGarment(newGarment);
       alertsStore.success("Garment added successfully");
-      onSuccess();
+      onSuccess?.();
     } catch (error) {
       alertsStore.error("Error adding garment");
       console.error(error);
@@ -110,7 +124,7 @@ export default function (
     try {
       await clothesStore.updateGarment(garment!.id!, updatedGarment);
       alertsStore.success("Garment updated successfully");
-      onSuccess();
+      onSuccess?.();
     } catch (error) {
       alertsStore.error("Error updating garment");
       console.error(error);

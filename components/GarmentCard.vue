@@ -12,19 +12,15 @@
           </span>
           <template #dropdown>
             <el-dropdown-menu class="tw-text-darkPurple-400">
-              <el-dropdown-item @click="() => {}">
+              <el-dropdown-item @click="garmentEditDialogVisible = true">
                 <span>
-                  <client-only>
-                    <EditGarmentButton :garment="garment" />
-                  </client-only>
-                  <span class="tw-ml-3">Edit</span>
+                  <font-awesome-icon icon="pen-clip" class="tw-mr-3" />
+                  Edit
                 </span>
               </el-dropdown-item>
               <el-dropdown-item @click="removeGarment">
                 <span>
-                  <client-only>
-                    <font-awesome-icon icon="trash" class="tw-mr-3" />
-                  </client-only>
+                  <font-awesome-icon icon="trash" class="tw-mr-3" />
                   Delete
                 </span>
               </el-dropdown-item>
@@ -77,6 +73,13 @@
       </NuxtLink>
     </client-only>
   </article>
+  <client-only>
+    <GarmentDialog
+      :garment="garment"
+      :open="garmentEditDialogVisible"
+      @closed="garmentEditDialogVisible = false"
+    />
+  </client-only>
 </template>
 
 <script setup lang="ts">
@@ -94,6 +97,7 @@ const user = useSupabaseUser();
 
 const { garment } = toRefs(props);
 const imageUrl = ref<string | null>(null);
+const garmentEditDialogVisible = ref(false);
 const garmentLocation = computed(() => garment.value.location ?? "Wardrobe");
 const garmentSize = computed(
   () => garment.value.size?.toLowerCase() ?? "unknown"

@@ -18,6 +18,8 @@ export default function () {
   };
 
   const formatImageAndUpload = async () => {
+    if (!resizedImage.value) return;
+
     const imageNoBg = await removeImageBackground();
     const bucketObjectRef = await uploadImage(uuid(), imageNoBg);
 
