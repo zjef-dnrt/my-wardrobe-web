@@ -54,8 +54,15 @@ const validateName = (rule: any, value: any, callback: any) => {
     callback(new Error("Please enter a location name"));
   } else {
     const alreadyExists = locationsStore.getLocationByName(value);
+
+    // Prevent the user from creating a location with the name "wardrobe"
+    value.toLowerCase() === "wardrobe" &&
+      callback(new Error("You already have a wardrobe, this name is reserved"));
+
+    // Prevent the user from creating a location with the same name as an already existing location
     alreadyExists &&
       callback(new Error("A location with this name already exists"));
+
     callback();
   }
 };
