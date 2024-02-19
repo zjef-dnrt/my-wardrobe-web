@@ -73,7 +73,7 @@ const submit = async (formEl: FormInstance | undefined) => {
 
     const user = useSupabaseUser();
     const newCategory: Category = {
-      name: form.categoryName,
+      name: form.categoryName.toLowerCase(),
       clothes_amount: 0,
       user_id: user.value!.id,
     };

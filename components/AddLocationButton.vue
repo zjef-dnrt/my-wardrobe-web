@@ -79,7 +79,7 @@ const submit = async (formEl: FormInstance | undefined) => {
     isLoading.value = true;
 
     const newCategory: Location = {
-      name: form.locationName,
+      name: form.locationName.toLowerCase(),
       user_id: user.value!.id,
     };
     handleAddCategory(newCategory);
