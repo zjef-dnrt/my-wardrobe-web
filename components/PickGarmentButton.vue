@@ -115,13 +115,7 @@ const clothesInCategory = computed(() => {
   });
 
   // Map the clothes to roulette items
-  return [
-    ...sortedClothes,
-    ...sortedClothes,
-    ...sortedClothes,
-    ...sortedClothes,
-    ...sortedClothes,
-  ].map(
+  return sortedClothes.map(
     (garment, index) =>
       ({
         id: garment.id ?? index,
