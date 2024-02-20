@@ -4,7 +4,9 @@
     title="Move Garment to another location"
     @closed="$emit('closed')"
   >
-    <div class="tw-text-center">
+    <div
+      class="tw-text-center tw-m-auto tw-flex tw-max-w-xl tw-flex-col tw-items-center"
+    >
       <GarmentCard :garment="garment" no-link />
       <el-select
         v-model="selectedLocation"
@@ -57,7 +59,7 @@ const moveGarment = async () => {
 
   try {
     const updatedGarment: Partial<Garment> = {
-      location: locationName === 'Wardrobe' ? null : locationName,
+      location: locationName === "Wardrobe" ? null : locationName,
     };
 
     await clothesStore.updateGarment(props.garment.id!, updatedGarment);
