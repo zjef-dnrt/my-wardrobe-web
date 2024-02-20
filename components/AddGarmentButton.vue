@@ -73,11 +73,18 @@
           />
         </el-form-item>
       </el-form>
-    <el-checkbox v-model="removeBackgroundOfImage" label="Remove the background of the image before uploading" size="large" />
-
+      <el-checkbox
+        v-model="removeBackgroundOfImage"
+        label="Remove the background of the image before uploading"
+        size="large"
+      />
       <template #footer>
         <el-button @click="dialogOpen = false">Cancel</el-button>
-        <el-button type="primary" @click="submit(formRef, removeBackgroundOfImage)" :loading="isLoading">
+        <el-button
+          type="primary"
+          @click="submit(formRef, removeBackgroundOfImage)"
+          :loading="isLoading"
+        >
           Add garment
         </el-button>
         <p

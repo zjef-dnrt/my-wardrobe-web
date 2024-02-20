@@ -26,7 +26,9 @@ export default function () {
       imageNoBg = await removeImageBackground();
     } else {
       const image = resizedImage.value.image as HTMLCanvasElement;
-      image.toBlob((blob) => (imageNoBg = blob));
+      imageNoBg = await new Promise((resolve) =>
+        image.toBlob((blob) => resolve(blob))
+      );
     }
 
     if (!imageNoBg) return;

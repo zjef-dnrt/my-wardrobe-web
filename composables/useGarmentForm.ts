@@ -23,7 +23,6 @@ export default function (
   categoryName?: string
 ) {
   const user = useSupabaseUser();
-  const supabase = useSupabaseClient();
   const clothesStore = useClothesStore();
   const alertsStore = useAlertsStore();
   const { resizeImage, uploadStatus, formatImageAndUpload } = useImageHandler();
