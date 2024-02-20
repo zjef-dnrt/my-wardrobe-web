@@ -35,16 +35,18 @@ export const useClothesStore = defineStore("clothes", () => {
   };
 
   const addGarment = async (newGarment: Garment) => {
-    const { error } = await supabase.from("clothes").insert(newGarment);
+    const { data, error } = await supabase.from("clothes").insert(newGarment).select();
     if (error) throw error;
 
-    // Add the photoURL to the new garment
-    populateGarmentPhotoURL(supabase, user, newGarment);
+    const insertedGarment = data![0];
 
-    clothes.value.push(newGarment);
+    // Add the photoURL to the new garment
+    populateGarmentPhotoURL(supabase, user, insertedGarment);
+
+    clothes.value.push(insertedGarment);
 
     // Increment the count of the category
-    const category = categoriesStore.getCategoryByName(newGarment.category!);
+    const category = categoriesStore.getCategoryByName(insertedGarment.category!);
     categoriesStore.updateCategory(category.name, {
       clothes_amount: category.clothes_amount + 1,
     });

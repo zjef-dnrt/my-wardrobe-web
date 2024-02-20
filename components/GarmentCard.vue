@@ -103,8 +103,11 @@ const garmentSize = computed(
 );
 
 const removeGarment = async () => {
+  const garmentId = toRaw(garment.value).id;
+  if (!garmentId) return alertsStore.error("Garment ID not found");
+
   try {
-    await clothesStore.removeGarment(garment.value.id!);
+    await clothesStore.removeGarment(garmentId);
     alertsStore.success("Garment removed successfully");
   } catch (error) {
     alertsStore.error("Error removing garment");
