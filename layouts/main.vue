@@ -71,7 +71,7 @@
             >
               <p>Locations</p>
               <Loading v-if="pending" />
-              <client-only v-else><AddLocationButton/></client-only>
+              <client-only v-else><AddLocationButton /></client-only>
             </div>
             <client-only>
               <NuxtLink
@@ -118,14 +118,20 @@ const avatarURL = ref<string>(user.value?.user_metadata?.avatar_url);
 const username = user.value?.user_metadata?.name;
 
 const categoriesStore = useCategoriesStore();
-const { locations, fetchLocations } = useLocationsStore();
+const locationsStore = useLocationsStore();
 const { fetchClothes } = useClothesStore();
 
 const { categories } = storeToRefs(categoriesStore);
+const { locations } = storeToRefs(locationsStore);
 
 const { pending } = await useAsyncData(
   "categories-locations-clothes",
-  async () => await Promise.all([categoriesStore.fetchCategories(), fetchLocations(), fetchClothes()])
+  async () =>
+    await Promise.all([
+      categoriesStore.fetchCategories(),
+      locationsStore.fetchLocations(),
+      fetchClothes(),
+    ])
 );
 
 const signOut = async () => {
