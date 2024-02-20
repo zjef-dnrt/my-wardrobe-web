@@ -30,8 +30,6 @@ export const useClothesStore = defineStore("clothes", () => {
     const { data, error, status } = await supabase.from("clothes").select();
     if (error && status !== 406) throw error;
 
-    
-
     data!.forEach((garment) => populateGarmentPhotoURL(supabase, user, garment));
     clothes.value = data!;
   };
@@ -39,6 +37,9 @@ export const useClothesStore = defineStore("clothes", () => {
   const addGarment = async (newGarment: Garment) => {
     const { error } = await supabase.from("clothes").insert(newGarment);
     if (error) throw error;
+
+    // Add the photoURL to the new garment
+    populateGarmentPhotoURL(supabase, user, newGarment);
 
     clothes.value.push(newGarment);
 
@@ -53,6 +54,9 @@ export const useClothesStore = defineStore("clothes", () => {
     id: number,
     updatedGarmentData: Partial<Garment>
   ) => {
+    // remove the photoURL from the updated data
+    delete updatedGarmentData.photoURL;
+
     const { error } = await supabase
       .from("clothes")
       .update(updatedGarmentData)

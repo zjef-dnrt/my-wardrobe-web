@@ -117,13 +117,15 @@ const user = useSupabaseUser();
 const avatarURL = ref<string>(user.value?.user_metadata?.avatar_url);
 const username = user.value?.user_metadata?.name;
 
-const { categories, fetchCategories } = useCategoriesStore();
+const categoriesStore = useCategoriesStore();
 const { locations, fetchLocations } = useLocationsStore();
 const { fetchClothes } = useClothesStore();
 
+const { categories } = storeToRefs(categoriesStore);
+
 const { pending } = await useAsyncData(
   "categories-locations-clothes",
-  async () => await Promise.all([fetchCategories(), fetchLocations(), fetchClothes()])
+  async () => await Promise.all([categoriesStore.fetchCategories(), fetchLocations(), fetchClothes()])
 );
 
 const signOut = async () => {

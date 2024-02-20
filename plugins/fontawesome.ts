@@ -4,6 +4,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import {
   faArrowLeft,
   faArrowRightLong,
+  faDice,
   faEllipsisV,
   faImage,
   faPenClip,
@@ -21,7 +22,8 @@ library.add(
   faTrash,
   faPenClip,
   faEllipsisV,
-  faImage
+  faImage,
+  faDice,
 );
 
 // This is important, we are going to let Nuxt worry about the CSS

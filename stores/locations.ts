@@ -3,10 +3,12 @@ import type { Database } from "@/types/supabase";
 import type { Location } from "@/types/models";
 
 export const useLocationsStore = defineStore("locations", () => {
+  const user = useSupabaseUser();
   const supabase = useSupabaseClient<Database>();
 
   const locations = ref<Location[]>([]);
 
+  const getAllLocations = (): Location[] => [{ name: 'Wardrobe', user_id: user.value!.id }, ...locations.value];
   const getLocationByName = (locationName: string): Location =>
     locations.value.find((c) => c.name.toLowerCase() === locationName.toLowerCase())!;
 
@@ -57,6 +59,7 @@ export const useLocationsStore = defineStore("locations", () => {
 
   return {
     locations,
+    getAllLocations,
     getLocationByName,
     fetchLocations,
     addLocation,

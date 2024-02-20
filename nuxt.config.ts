@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@element-plus/nuxt",
     "@nuxt/image",
+    "@vueuse/nuxt",
   ],
   app: {
     head: {

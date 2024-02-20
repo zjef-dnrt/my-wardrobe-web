@@ -1,5 +1,6 @@
 <template>
   <article
+    :style="{ 'pointer-events': noLink ? 'none' : 'auto' }"
     class="card tw-h-80 tw-w-full tw-my-3 tw-shadow-md tw-rounded-md tw-flex tw-flex-col hover:tw-cursor-pointer hover:tw-shadow-lg hover:tw--translate-y-1 tw-transition-all tw-duration-300 tw-overflow-hidden"
   >
     <div class="card__options">
@@ -88,12 +89,11 @@ import type { Garment } from "~/types/models";
 
 const props = defineProps<{
   garment: Garment;
+  noLink?: boolean;
 }>();
 
 const clothesStore = useClothesStore();
 const alertsStore = useAlertsStore();
-const supabase = useSupabaseClient();
-const user = useSupabaseUser();
 
 const { garment } = toRefs(props);
 const garmentEditDialogVisible = ref(false);
