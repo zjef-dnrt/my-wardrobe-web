@@ -19,6 +19,12 @@
                   Edit
                 </span>
               </el-dropdown-item>
+              <el-dropdown-item @click="garmentMoveDialogVisible = true">
+                <span>
+                  <font-awesome-icon icon="repeat" class="tw-mr-3" />
+                  Move
+                </span>
+              </el-dropdown-item>
               <el-dropdown-item @click="removeGarment">
                 <span>
                   <font-awesome-icon icon="trash" class="tw-mr-3" />
@@ -80,6 +86,11 @@
       :open="garmentEditDialogVisible"
       @closed="garmentEditDialogVisible = false"
     />
+    <MoveGarmentDialog
+      :garment="garment"
+      :open="garmentMoveDialogVisible"
+      @closed="garmentMoveDialogVisible = false"
+    />
   </client-only>
 </template>
 
@@ -97,6 +108,7 @@ const alertsStore = useAlertsStore();
 
 const { garment } = toRefs(props);
 const garmentEditDialogVisible = ref(false);
+const garmentMoveDialogVisible = ref(false);
 const garmentLocation = computed(() => garment.value.location ?? "Wardrobe");
 const garmentSize = computed(
   () => garment.value.size?.toLowerCase() ?? "unknown"

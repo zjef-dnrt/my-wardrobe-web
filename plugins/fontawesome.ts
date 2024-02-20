@@ -9,6 +9,7 @@ import {
   faImage,
   faPenClip,
   faPlus,
+  faRepeat,
   faTrash,
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
@@ -24,6 +25,7 @@ library.add(
   faEllipsisV,
   faImage,
   faDice,
+  faRepeat
 );
 
 // This is important, we are going to let Nuxt worry about the CSS

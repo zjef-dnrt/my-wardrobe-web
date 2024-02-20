@@ -19,7 +19,7 @@
       class="gradient-bg tw-relative tw-w-3/4 tw-h-3/4 tw-mt-4 tw-grid tw-place-items-center tw-p-8 tw-rounded-md tw-shadow-md"
     >
       <NuxtImg
-        :src="garment!.photoURL!"
+        :src="garment?.photoURL ?? ''"
         placeholder
         fit="contain"
         class="tw-pb-8"
