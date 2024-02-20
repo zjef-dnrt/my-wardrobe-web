@@ -71,7 +71,7 @@
               class="tw-my-4"
             >
               <el-option
-                v-for="location in getAllLocations()"
+                v-for="location in allLocations"
                 :key="location.name"
                 :label="capitalize(location.name)"
                 :value="location"
@@ -99,6 +99,7 @@ const props = defineProps<{
 const clothesStore = useClothesStore();
 const alertsStore = useAlertsStore();
 const { getAllLocations } = useLocationsStore();
+const allLocations = computed(getAllLocations);
 
 const clothesInCategory = computed(() => {
   const clothesInCategory = clothesStore.getClothesInCategory(

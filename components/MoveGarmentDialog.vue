@@ -16,7 +16,7 @@
         class="tw-my-4"
       >
         <el-option
-          v-for="location in getAllLocations()"
+          v-for="location in allLocations"
           :key="location.name"
           :label="capitalize(location.name)"
           :value="location"
