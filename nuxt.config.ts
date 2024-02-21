@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
+    "@nuxt/test-utils/module",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/supabase",
     "@pinia/nuxt",
@@ -30,6 +31,14 @@ export default defineNuxtConfig({
   ],
   elementPlus: {
     importStyle: "scss",
+  },
+  runtimeConfig: {
+    public: {
+      baseUrl:
+        process.env.NODE_ENV === "production"
+          ? process.env.PROD_BASE_URL
+          : process.env.DEV_BASE_URL,
+    },
   },
   vite: {
     css: {

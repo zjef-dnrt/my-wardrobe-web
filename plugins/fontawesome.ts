@@ -1,6 +1,6 @@
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import {
   faArrowLeft,
   faArrowRightLong,
@@ -12,10 +12,12 @@ import {
   faRepeat,
   faTrash,
   faUserCircle,
+  faWandMagicSparkles,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
   faFacebook,
+  faGoogle,
   faArrowLeft,
   faUserCircle,
   faArrowRightLong,
@@ -25,7 +27,8 @@ library.add(
   faEllipsisV,
   faImage,
   faDice,
-  faRepeat
+  faRepeat,
+  faWandMagicSparkles,
 );
 
 // This is important, we are going to let Nuxt worry about the CSS
