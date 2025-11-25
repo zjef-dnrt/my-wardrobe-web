@@ -1,12 +1,9 @@
 <template>
   <h1
-    class="tw-font-festive tw-tracking-widest tw-text-6xl tw-text-oldLavender-500 tw-my-6"
+    class="tw-font-festive tw-tracking-wide tw-text-6xl tw-text-oldLavender-500 tw-my-6"
   >
     My Wardrobe
   </h1>
-  <p class="tw-mx-9 tw-text-center tw-opacity-40">
-    Please authenticate yourself to continue
-  </p>
   <div
     class="tw-w-full tw-flex-grow tw-flex tw-flex-col tw-items-center tw-justify-center"
   >
